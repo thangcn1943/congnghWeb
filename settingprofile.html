@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sửa đổi thông tin</title>
+    <link rel="stylesheet" href="./assets/css/setting.css" />
+  </head>
+  <body>
+    <div class="content">
+      <div class="SettingProfile">
+        <table>
+            <tr>
+              <td>
+                <label for="hoTen">Họ và tên:</label>
+              </td>
+              <td>
+                <input type="text" id="hoTen" name="hoTen">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Giới tính:</label>
+              </td>
+              <td class="line">
+                <input type="radio" id="nam" name="gioiTinh" value="Nam">
+                <label for="nam">Nam</label>
+                <input type="radio" id="nu" name="gioiTinh" value="Nữ">
+                <label for="nu">Nữ</label>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="ngaySinh">Năm sinh:</label>
+              </td>
+              <td>
+                <input type="date" id="ngaySinh" name="ngaySinh">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="mssv">MSSV:</label>
+              </td>
+              <td>
+                <input type="text" id="mssv" name="mssv">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="khoa">Trường/Viện:</label>
+              </td>
+              <td>
+                <select id="khoa" name="khoa">
+                  <option value="">Trường Công Nghệ Thông Tin và Truyền Thông</option>
+                  <option value="">Trường Cơ Khí</option>
+                  <option value="">Trường Điện - Điện Tử</option>
+                  <option value="">Trường Vật Liệu</option>
+                  <option value="">Trường Hóa và Khoa Học Sự Sống</option>
+                  <option value="">Trường Kinh Tế và Quản Lí</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="soDienThoai">Số điện thoại:</label>
+              </td>
+              <td>
+                <input type="text" id="soDienThoai" name="soDienThoai">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="email">Email:</label>
+              </td>
+              <td>
+                <input type="email" id="email" name="email">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="bacDaoTao">Bậc đào tạo:</label>
+              </td>
+              <td>
+                <input type="text" id="bacDaoTao" name="bacDaoTao">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="khoaHoc">Khóa học:</label>
+              </td>
+              <td>
+                <input type="text" id="khoaHoc" name="khoaHoc">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Tình trạng học:</label>
+              </td>
+              <td class="line">
+                <input type="radio" id="hoc" name="tinhTrangHoc" value="1">
+                <label for="hoc">Học</label>
+                <input type="radio" id="baoLuu" name="tinhTrangHoc" value="2">
+                <label for="baoLuu">Bảo lưu</label>
+                <input type="radio" id="thoiHoc" name="tinhTrangHoc" value="3">
+                <label for="thoiHoc">Thôi học</label>
+              </td>
+            </tr>
+          </table>
+      </div>
+      <div class="button-container">
+        <a href="./index.html" class="ok-button">OK</a>
+        <a href="./index.html" class="cancel-button">Cancel</a>
+      </div>
+    </div>
+  </body>
+</html>
