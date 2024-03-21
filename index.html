@@ -182,8 +182,7 @@
                             <span>
                                 <strong>Giới tính&emsp;: <span id="gioiTinh">Nam</span></strong>
                                 <br>
-                                <strong>Lớp&emsp;:</strong>
-                                Kỹ thuật máy tính 01-K66
+                                <strong>Lớp&emsp;: <span id = "lopSinhvien">Kỹ thuật máy tính 01-K66</span></strong>
                                 <br>
                                 <strong>Khóa học&emsp;: <span id="khoaHoc">66</span></strong>
                                 <br>
@@ -311,6 +310,7 @@
             var hoTen = localStorage.getItem('hoTen');
             var gioiTinh = localStorage.getItem('gioiTinh');
             var nganhHoc = localStorage.getItem('nganhHoc');
+            var lopSinhvien = localStorage.getItem('lopSinhvien');
             var truong = localStorage.getItem('truong');
             var email = localStorage.getItem('email');
             var bacDaoTao = localStorage.getItem('bacDaoTao');
@@ -321,6 +321,7 @@
             if (hoTen !== null) document.getElementById('hoTen').innerText = hoTen;
             if (gioiTinh !== null) document.getElementById('gioiTinh').innerText = gioiTinh;
             if (nganhHoc !== null) document.getElementById('nganhhoc').innerText = nganhHoc;
+            if (lopSinhvien !== null) document.getElementById('lopSinhvien').innerText = lopSinhvien;
             if (truong !== null) document.getElementById('truong').innerText = truong;
             if (email !== null) document.getElementById('email').innerText = email;
             if (bacDaoTao !== null) document.getElementById('bacDaoTao').innerText = bacDaoTao;

@@ -9,6 +9,9 @@ const saveProfile = () => {
     var nganhHoc = document.getElementById('Newnganhhoc').value;
     if (nganhHoc) localStorage.setItem('nganhHoc', nganhHoc);
 
+    var lopSinhVien = document.getElementById('NewlopSinhvien').value;
+    if(lopSinhVien) localStorage.setItem('lopSinhvien', lopSinhVien)
+    
     var truong = document.getElementById('Newtruong').value;
     if (truong) localStorage.setItem('truong', truong);
 
