@@ -171,7 +171,8 @@
                                 <br>
                                 <strong>Chương trình&emsp;: <span id="nganhhoc">Kỹ thuật Máy tính 2021</span></strong>
                                 <br>
-                                <strong>Khoa/Viện quản lý&emsp;: <span id="truong">Trường Công nghệ thông tin và Truyền thông</span></strong>
+                                <strong>Khoa/Viện quản lý&emsp;: <span id="truong">Trường Công nghệ thông tin và Truyền
+                                        thông</span></strong>
                                 <br>
                                 <strong>Tình trạng học tập&emsp;: <span id="tinhTrangHoc">Học</span></strong>
 
@@ -316,15 +317,15 @@
             var khoaHoc = localStorage.getItem('khoaHoc');
             var tinhTrangHoc = localStorage.getItem('tinhTrangHoc');
 
-            // Update the elements with the retrieved values
-            document.getElementById('hoTen').innerText = hoTen;
-            document.getElementById('gioiTinh').innerText = gioiTinh;
-            document.getElementById('nganhhoc').innerText = nganhHoc;
-            document.getElementById('truong').innerText = truong;
-            document.getElementById('email').innerText = email;
-            document.getElementById('bacDaoTao').innerText = bacDaoTao;
-            document.getElementById('khoaHoc').innerText = khoaHoc;
-            document.getElementById('tinhTrangHoc').innerText = tinhTrangHoc;
+            // Update the elements with the retrieved values only if they are not null
+            if (hoTen !== null) document.getElementById('hoTen').innerText = hoTen;
+            if (gioiTinh !== null) document.getElementById('gioiTinh').innerText = gioiTinh;
+            if (nganhHoc !== null) document.getElementById('nganhhoc').innerText = nganhHoc;
+            if (truong !== null) document.getElementById('truong').innerText = truong;
+            if (email !== null) document.getElementById('email').innerText = email;
+            if (bacDaoTao !== null) document.getElementById('bacDaoTao').innerText = bacDaoTao;
+            if (khoaHoc !== null) document.getElementById('khoaHoc').innerText = khoaHoc;
+            if (tinhTrangHoc !== null) document.getElementById('tinhTrangHoc').innerText = tinhTrangHoc;
         }
     </script>
 </body>

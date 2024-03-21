@@ -1,22 +1,28 @@
 const saveProfile = () => {
+    // Only store the value in localStorage if the input field has been filled
     var hoTen = document.getElementById('NewhoTen').value;
-    var gioiTinh = document.querySelector('input[name="NewgioiTinh"]:checked').value;
-    var nganhHoc = document.getElementById('Newnganhhoc').value;
-    var truong = document.getElementById('Newtruong').value;
-    var email = document.getElementById('Newemail').value;
-    var bacDaoTao = document.getElementById('NewbacDaoTao').value;
-    var khoaHoc = document.getElementById('NewkhoaHoc').value;
-    var tinhTrangHoc = document.querySelector('input[name="NewtinhTrangHoc"]:checked').value;
+    if (hoTen) localStorage.setItem('hoTen', hoTen);
 
-    // Store the values in localStorage
-    localStorage.setItem('hoTen', hoTen);
-    localStorage.setItem('gioiTinh', gioiTinh);
-    localStorage.setItem('nganhHoc', nganhHoc);
-    localStorage.setItem('truong', truong);
-    localStorage.setItem('email', email);
-    localStorage.setItem('bacDaoTao', bacDaoTao);
-    localStorage.setItem('khoaHoc', khoaHoc);
-    localStorage.setItem('tinhTrangHoc', tinhTrangHoc);
+    var gioiTinh = document.querySelector('input[name="NewgioiTinh"]:checked');
+    if (gioiTinh) localStorage.setItem('gioiTinh', gioiTinh.value);
+
+    var nganhHoc = document.getElementById('Newnganhhoc').value;
+    if (nganhHoc) localStorage.setItem('nganhHoc', nganhHoc);
+
+    var truong = document.getElementById('Newtruong').value;
+    if (truong) localStorage.setItem('truong', truong);
+
+    var email = document.getElementById('Newemail').value;
+    if (email) localStorage.setItem('email', email);
+
+    var bacDaoTao = document.getElementById('NewbacDaoTao').value;
+    if (bacDaoTao) localStorage.setItem('bacDaoTao', bacDaoTao);
+
+    var khoaHoc = document.getElementById('NewkhoaHoc').value;
+    if (khoaHoc) localStorage.setItem('khoaHoc', khoaHoc);
+
+    var tinhTrangHoc = document.querySelector('input[name="NewtinhTrangHoc"]:checked');
+    if (tinhTrangHoc) localStorage.setItem('tinhTrangHoc', tinhTrangHoc.value);
 
     // Redirect to index.html
     window.location.href = "./index.html";
