@@ -29,6 +29,64 @@ let data = JSON.parse(localStorage.getItem('info_sv'))
 
 let settingButton = document.getElementById('settingButton')
 
+function handleCancelButtonClick() {
+    // Ẩn các phần tử input
+    let avatar = document.getElementById('avatar');
+    var inputs = document.getElementsByClassName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.display = 'none';
+    }
+
+    for(var id of fieldIds){
+        var field = document.getElementById(id)
+        field.textContent = cur_info[id]
+        field.style.display = 'inline-block';
+    }
+    console.log(cur_info);
+    let divButton = document.querySelector('.divButton');
+    divButton.style.display = 'none'
+}
+function handleOKButtonClick(){
+    for (var id of fieldIds) {
+        var input = document.getElementById('new' + id);
+        TTSV[id] = input.value;
+    }
+    console.log(TTSV);
+
+    // Hiển thị giá trị mới
+    for (var id of fieldIds) {
+        var field = document.getElementById(id);
+        field.textContent = TTSV[id];
+        field.style.display = 'inline-block';
+    }
+
+    // Ẩn các phần tử input
+    var inputs = document.getElementsByClassName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.display = 'none';
+    }
+
+    let divButton = document.querySelector('.divButton');
+    divButton.style.display = 'none'
+}
+
+function handleResetButtonClick(){
+    for(var id of fieldIds){
+        var field = document.getElementById(id)
+        field.textContent = data[id]
+        field.style.display = 'inline-block';
+    }
+    console.log(data)
+    var inputs = document.getElementsByClassName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.display = 'none';
+    }
+    let divButton = document.querySelector('.divButton');
+    divButton.style.display = 'none'
+
+    let avatar = document.getElementById('avatar');
+    avatar.src = firstSrc;
+}
 settingButton.addEventListener('click', function () {
 
     let imageInput = document.getElementById('imageFile');
@@ -64,70 +122,12 @@ settingButton.addEventListener('click', function () {
     divButton.style.display = 'block'
 
     let resetButton = document.getElementById('resetButton')
-
-    resetButton.addEventListener('click',function(){
-        for(var id of fieldIds){
-            var field = document.getElementById(id)
-            field.textContent = data[id]
-            console.log(data[id])
-            field.style.display = 'inline-block';
-        }
-        var inputs = document.getElementsByClassName('input');
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].style.display = 'none';
-        }
-        let divButton = document.querySelector('.divButton');
-        divButton.style.display = 'none'
-
-        let avatar = document.getElementById('avatar');
-        avatar.src = firstSrc;
-    })
+    resetButton.addEventListener('click',handleResetButtonClick)
 
     let cancelButton = document.getElementById('cancelButton')
-
-    cancelButton.addEventListener('click', function(){
-        // Ẩn các phần tử input
-        let avatar = document.getElementById('avatar');
-        var inputs = document.getElementsByClassName('input');
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].style.display = 'none';
-        }
-
-        for(var id of fieldIds){
-            var field = document.getElementById(id)
-            field.textContent = cur_info[id]
-            console.log(cur_info[id])
-            field.style.display = 'inline-block';
-        }
-
-        let divButton = document.querySelector('.divButton');
-        divButton.style.display = 'none'
-        avatar.src = originalSrc;
-    })
+    cancelButton.addEventListener('click', handleCancelButtonClick);
 
     let okButton = document.getElementById('okButton');
-    okButton.addEventListener('click', function () {
+    okButton.addEventListener('click', handleOKButtonClick)
         // Lấy giá trị từ các phần tử input và lưu vào đối tượng TTSV
-        for (var id of fieldIds) {
-            var input = document.getElementById('new' + id);
-            TTSV[id] = input.value;
-            console.log(TTSV[id])
-        }
-
-        // Hiển thị giá trị mới
-        for (var id of fieldIds) {
-            var field = document.getElementById(id);
-            field.textContent = TTSV[id];
-            field.style.display = 'inline-block';
-        }
-
-        // Ẩn các phần tử input
-        var inputs = document.getElementsByClassName('input');
-        for (var i = 0; i < inputs.length; i++) {
-            inputs[i].style.display = 'none';
-        }
-
-        let divButton = document.querySelector('.divButton');
-        divButton.style.display = 'none'
-    });
 });
