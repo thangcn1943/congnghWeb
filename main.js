@@ -1,32 +1,105 @@
-const saveProfile = () => {
-    // Only store the value in localStorage if the input field has been filled
-    var hoTen = document.getElementById('NewhoTen').value;
-    if (hoTen) localStorage.setItem('hoTen', hoTen);
-
-    var gioiTinh = document.querySelector('input[name="NewgioiTinh"]:checked');
-    if (gioiTinh) localStorage.setItem('gioiTinh', gioiTinh.value);
-
-    var nganhHoc = document.getElementById('Newnganhhoc').value;
-    if (nganhHoc) localStorage.setItem('nganhHoc', nganhHoc);
-
-    var lopSinhVien = document.getElementById('NewlopSinhvien').value;
-    if(lopSinhVien) localStorage.setItem('lopSinhvien', lopSinhVien)
-    
-    var truong = document.getElementById('Newtruong').value;
-    if (truong) localStorage.setItem('truong', truong);
-
-    var email = document.getElementById('Newemail').value;
-    if (email) localStorage.setItem('email', email);
-
-    var bacDaoTao = document.getElementById('NewbacDaoTao').value;
-    if (bacDaoTao) localStorage.setItem('bacDaoTao', bacDaoTao);
-
-    var khoaHoc = document.getElementById('NewkhoaHoc').value;
-    if (khoaHoc) localStorage.setItem('khoaHoc', khoaHoc);
-
-    var tinhTrangHoc = document.querySelector('input[name="NewtinhTrangHoc"]:checked');
-    if (tinhTrangHoc) localStorage.setItem('tinhTrangHoc', tinhTrangHoc.value);
-
-    // Redirect to index.html
-    window.location.href = "./index.html";
+let TTSV = {
+    hoTen: "Cao Ngọc Thắng",
+    namVao: "2021",
+    gioiTinh: "Nam",
+    nganhhoc: "Kỹ thuật máy tính",
+    lopSinhvien: "Kỹ thuật máy tính 01 - K66",
+    truong: "Trường Công nghệ thông tin và truyền thông",
+    email: "thang.cn215644@sis.hust.edu.vn",
+    bacDaoTao: "Đại học đại trà",
+    khoaHoc: "66",
+    tinhTrangHoc: "Học"
 }
+
+let cur_info = {
+    hoTen: "",
+    namVao: "",
+    gioiTinh: "",
+    nganhhoc: "",
+    lopSinhvien: "",
+    truong: "",
+    email: "",
+    bacDaoTao: "",
+    khoaHoc: "",
+    tinhTrangHoc: ""
+}
+localStorage.setItem('info_sv',JSON.stringify(TTSV))
+let data = JSON.parse(localStorage.getItem('info_sv'))
+let settingButton = document.getElementById('settingButton')
+
+settingButton.addEventListener('click', function () {
+    fieldIds = ['hoTen', 'namVao', 'bacDaoTao', 'nganhhoc', 'truong', 'tinhTrangHoc', 'gioiTinh', 'lopSinhvien', 'khoaHoc', 'email']
+    
+    for (var id of fieldIds) {
+        var field = document.getElementById(id)
+        cur_info[id] = field.textContent
+        field.style.display = 'none';
+    }
+    
+    var inputs = document.getElementsByClassName('input');
+    for (var i = 0; i < inputs.length; i++) {
+        inputs[i].style.display = 'inline-block';
+    }
+    let divButton = document.querySelector('.divButton');
+    divButton.style.display = 'block'
+
+    let resetButton = document.getElementById('resetButton')
+
+    resetButton.addEventListener('click',function(){
+        for(var id of fieldIds){
+            var field = document.getElementById(id)
+            field.textContent = data[id]
+            field.style.display = 'inline-block';
+        }
+        var inputs = document.getElementsByClassName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = 'none';
+        }
+        let divButton = document.querySelector('.divButton');
+        divButton.style.display = 'none'
+    })
+
+    let cancelButton = document.getElementById('cancelButton')
+
+    cancelButton.addEventListener('click', function(){
+        // Ẩn các phần tử input
+        var inputs = document.getElementsByClassName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = 'none';
+        }
+
+        for(var id of fieldIds){
+            var field = document.getElementById(id)
+            field.textContent = cur_info[id]
+            field.style.display = 'inline-block';
+        }
+
+        let divButton = document.querySelector('.divButton');
+        divButton.style.display = 'none'
+    })
+
+    let okButton = document.getElementById('okButton');
+    okButton.addEventListener('click', function () {
+        // Lấy giá trị từ các phần tử input và lưu vào đối tượng TTSV
+        for (var id of fieldIds) {
+            var input = document.getElementById('new' + id);
+            TTSV[id] = input.value;
+        }
+
+        // Hiển thị giá trị mới
+        for (var id of fieldIds) {
+            var field = document.getElementById(id);
+            field.textContent = TTSV[id];
+            field.style.display = 'inline-block';
+        }
+
+        // Ẩn các phần tử input
+        var inputs = document.getElementsByClassName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].style.display = 'none';
+        }
+
+        let divButton = document.querySelector('.divButton');
+        divButton.style.display = 'none'
+    });
+});

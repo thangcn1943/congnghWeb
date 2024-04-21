@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/main.css">
     <link rel="stylesheet" href="./assets/icon/themify-icons/themify-icons.css">
-    <link rel="stylesheet" href="./settingprofile.html">
     <title>Thông tin cá nhân</title>
 </head>
 
@@ -142,10 +141,14 @@
                     <hr>
                 </div>
                 <div class="MainContent">
+                    <div class="divButton" style="position: absolute; right: 0;display: none;">
+                        <button id="okButton">OK</button>
+                        <button id="cancelButton">Cancel</button>
+                        <button id="resetButton">Reset</button>
+                    </div>
                     <div class="row">
                         <span class="selection1">THÔNG TIN SINH VIÊN</span>
-                        <a class="ti-settings" href="./settingprofile.html"
-                            style="margin-left: 20px; color: black;"></a>
+                        <a class="ti-settings" id = "settingButton" style="margin-left: 20px; color: black; cursor: pointer;"></a>
                     </div>
                     <hr>
                     <div class="row">
@@ -162,31 +165,102 @@
                         </div>
                         <div class="col-md-4">
                             <span>
-                                <strong class>Họ và tên&emsp;: <span id="hoTen">Cao Ngọc Thắng</span></strong>
+                                <strong class>Họ và tên&emsp;:
+                                    <span id="hoTen">Cao Ngọc Thắng</span>
+                                    <div class="input">
+                                        <input type="text" id="newhoTen" name="newhoTen">
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Năm vào trường&emsp;:</strong>
-                                2021
+                                <strong>Năm vào trường&emsp;:
+                                    <span id="namVao">2021</span>
+                                    <div class="input">
+                                        <input type="text" id="newnamVao" name="newnamVao">
+                                    </div>
+                                </strong>
+
                                 <br>
-                                <strong>Bậc đào tạo&emsp;: <span id="bacDaoTao">Đại học đại trà</span></strong>
+                                <strong>Bậc đào tạo&emsp;:
+                                    <span id="bacDaoTao">Đại học đại trà</span>
+                                    <div class="input">
+                                        <input type="text" id="newbacDaoTao" name="newbacDaoTao">
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Chương trình&emsp;: <span id="nganhhoc">Kỹ thuật Máy tính 2021</span></strong>
+                                <strong>Chương trình&emsp;:
+                                    <span id="nganhhoc">Kỹ thuật Máy tính 2021</span>
+                                    <div class="input">
+                                        <input type="text" id="newnganhhoc" name="newnganhhoc">
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Khoa/Viện quản lý&emsp;: <span id="truong">Trường Công nghệ thông tin và Truyền
-                                        thông</span></strong>
+                                <strong>Khoa/Viện quản lý&emsp;:
+                                    <span id="truong">Trường Công nghệ thông tin và Truyền thông</span>
+                                    <div class="input">
+                                        <select id="newtruong" name="truong">
+                                            <option value="Trường Công Nghệ Thông Tin và Truyền Thông">Trường Công Nghệ
+                                                Thông Tin và Truyền Thông</option>
+                                            <option value="Trường Cơ Khí">Trường Cơ Khí</option>
+                                            <option value="Trường Điện - Điện Tử">Trường Điện - Điện Tử</option>
+                                            <option value="Trường Vật Liệu">Trường Vật Liệu</option>
+                                            <option value="Trường Hóa và Khoa Học Sự Sống">Trường Hóa và Khoa Học Sự
+                                                Sống</option>
+                                            <option value="Trường Kinh Tế và Quản Lí">Trường Kinh Tế và Quản Lí</option>
+                                        </select>
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Tình trạng học tập&emsp;: <span id="tinhTrangHoc">Học</span></strong>
+                                <strong>Tình trạng học tập&emsp;:
+                                    <span id="tinhTrangHoc">Học</span>
+                                    <div class="input">
+                                        <select name="newtinhTrangHoc" id="newtinhTrangHoc">
+                                            <option value="Học">Học</option>
+                                            <option value="Thôi Học">Thôi Học</option>
+                                            <option value="Bảo Lưu">Bảo Lưu</option>
+                                            <option value="Đã Tốt Nghiệp">Đã Tốt Nghiệp</option>
+                                        </select>
+                                    </div>
+                                </strong>
 
                             </span>
                         </div>
                         <div class="col-md-4">
                             <span>
-                                <strong>Giới tính&emsp;: <span id="gioiTinh">Nam</span></strong>
+                                <strong>Giới tính&emsp;:
+                                    <span id="gioiTinh">Nam</span>
+                                    <div class="input">
+                                        <input type="radio" id="newgioiTinh" name="newgioiTinh" value="Nam">
+                                        <label for="nam">Nam</label>
+                                        <input type="radio" id="newgioiTinh" name="newgioiTinh" value="Nữ">
+                                        <label for="nu">Nữ</label>
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Lớp&emsp;: <span id = "lopSinhvien">Kỹ thuật máy tính 01-K66</span></strong>
+                                <strong>Lớp&emsp;:
+                                    <span id="lopSinhvien">Kỹ thuật máy tính 01-K66</span>
+                                    <div class="input">
+                                        <input type="text" id = "newlopSinhvien" name="newlopSinhvien"> 
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Khóa học&emsp;: <span id="khoaHoc">66</span></strong>
+                                <strong>Khóa học&emsp;:
+                                    <span id="khoaHoc">66</span>
+                                    <div class="input">
+                                        <select name="newkhoaHoc" id="newkhoaHoc" name = "newkhoaHoc">
+                                            <option value="65">65</option>
+                                            <option value="66">66</option>
+                                            <option value="67">67</option>
+                                            <option value="68">68</option>
+                                        </select>
+                                    </div>
+                                </strong>
                                 <br>
-                                <strong>Email&emsp;: <span id="email">thang.cn215644@sis.hust.edu.vn</span></strong>
+                                <strong>Email&emsp;: 
+                                    <span id="email">thang.cn215644@sis.hust.edu.vn</span>
+                                    <div class="input">
+                                        <input type="email" id="newemail" name="newemail">
+                                    </div>
+                                </strong>
                                 <br>
                             </span>
                         </div>
@@ -304,31 +378,7 @@
             </tr>
         </tbody>
     </table>
-    <script>
-        window.onload = () => {
-            // Retrieve the values from localStorage
-            var hoTen = localStorage.getItem('hoTen');
-            var gioiTinh = localStorage.getItem('gioiTinh');
-            var nganhHoc = localStorage.getItem('nganhHoc');
-            var lopSinhvien = localStorage.getItem('lopSinhvien');
-            var truong = localStorage.getItem('truong');
-            var email = localStorage.getItem('email');
-            var bacDaoTao = localStorage.getItem('bacDaoTao');
-            var khoaHoc = localStorage.getItem('khoaHoc');
-            var tinhTrangHoc = localStorage.getItem('tinhTrangHoc');
-
-            // Update the elements with the retrieved values only if they are not null
-            if (hoTen !== null) document.getElementById('hoTen').innerText = hoTen;
-            if (gioiTinh !== null) document.getElementById('gioiTinh').innerText = gioiTinh;
-            if (nganhHoc !== null) document.getElementById('nganhhoc').innerText = nganhHoc;
-            if (lopSinhvien !== null) document.getElementById('lopSinhvien').innerText = lopSinhvien;
-            if (truong !== null) document.getElementById('truong').innerText = truong;
-            if (email !== null) document.getElementById('email').innerText = email;
-            if (bacDaoTao !== null) document.getElementById('bacDaoTao').innerText = bacDaoTao;
-            if (khoaHoc !== null) document.getElementById('khoaHoc').innerText = khoaHoc;
-            if (tinhTrangHoc !== null) document.getElementById('tinhTrangHoc').innerText = tinhTrangHoc;
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>
