@@ -43,6 +43,7 @@ function handleCancelButtonClick() {
         field.style.display = 'inline-block';
     }
     console.log(cur_info);
+    avatar.src = originalSrc
     let divButton = document.querySelector('.divButton');
     divButton.style.display = 'none'
 }
