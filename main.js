@@ -10,6 +10,7 @@ let TTSV = {
     khoaHoc: "66",
     tinhTrangHoc: "Học",
 }
+let firstSrc = "./assets/img/EBDCB892-8BF6-4995-851E-C1DCD3E48376.jpeg"
 let originalSrc = "./assets/img/EBDCB892-8BF6-4995-851E-C1DCD3E48376.jpeg"
 let cur_info = {
     hoTen: "",
@@ -26,11 +27,27 @@ let cur_info = {
 localStorage.setItem('info_sv',JSON.stringify(TTSV))
 let data = JSON.parse(localStorage.getItem('info_sv'))
 
-
-
 let settingButton = document.getElementById('settingButton')
 
 settingButton.addEventListener('click', function () {
+
+    let imageInput = document.getElementById('imageFile');
+    let avatar = document.getElementById('avatar');
+    originalSrc = avatar.src;
+    imageInput.addEventListener('change', function(e) {
+        let file = e.target.files[0];
+        let reader = new FileReader();
+
+        reader.onloadend = function() {
+            let img = document.getElementById('avatar');
+            console.log(originalSrc)
+            img.src = reader.result;
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    });
 
     fieldIds = ['hoTen', 'namVao', 'bacDaoTao', 'nganhhoc', 'truong', 'tinhTrangHoc', 'gioiTinh', 'lopSinhvien', 'khoaHoc', 'email']
     
@@ -63,8 +80,8 @@ settingButton.addEventListener('click', function () {
         let divButton = document.querySelector('.divButton');
         divButton.style.display = 'none'
 
-        avatar = document.getElementById('avatar');
-        avatar.src = originalSrc;
+        let avatar = document.getElementById('avatar');
+        avatar.src = firstSrc;
     })
 
     let cancelButton = document.getElementById('cancelButton')
@@ -72,7 +89,6 @@ settingButton.addEventListener('click', function () {
     cancelButton.addEventListener('click', function(){
         // Ẩn các phần tử input
         let avatar = document.getElementById('avatar');
-        let curSrc = avatar.src;
         var inputs = document.getElementsByClassName('input');
         for (var i = 0; i < inputs.length; i++) {
             inputs[i].style.display = 'none';
@@ -87,7 +103,7 @@ settingButton.addEventListener('click', function () {
 
         let divButton = document.querySelector('.divButton');
         divButton.style.display = 'none'
-        avatar.src = curSrc;
+        avatar.src = originalSrc;
     })
 
     let okButton = document.getElementById('okButton');
@@ -114,20 +130,5 @@ settingButton.addEventListener('click', function () {
 
         let divButton = document.querySelector('.divButton');
         divButton.style.display = 'none'
-    });
-    let imageInput = document.getElementById('imageFile');
-
-    imageInput.addEventListener('change', function(e) {
-        let file = e.target.files[0];
-        let reader = new FileReader();
-
-        reader.onloadend = function() {
-            let img = document.getElementById('avatar');
-            img.src = reader.result;
-        }
-
-        if (file) {
-            reader.readAsDataURL(file);
-        }
     });
 });
