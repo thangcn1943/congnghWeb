@@ -40,7 +40,6 @@ settingButton.addEventListener('click', function () {
 
         reader.onloadend = function() {
             let img = document.getElementById('avatar');
-            console.log(originalSrc)
             img.src = reader.result;
         }
 
